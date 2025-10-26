@@ -18,7 +18,7 @@ pipeline {
                 DOCKERHUB_CREDENTIALS = credentials('docker-hub-credentials')
             }
             steps {
-                sh "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW"
+                sh "docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW --password-stdin"
                 sh 'docker push ajayc20/selenium-and-docker:1.0.0'
                 echo "Docker Image Push Completed"
             }
