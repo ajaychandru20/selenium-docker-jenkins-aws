@@ -23,7 +23,7 @@ pipeline {
         docker {
           image 'maven:3.9.6-eclipse-temurin-21-alpine'
           // Using the UID argument to prevent permission errors
-          args "-u \$(id -u) -v /tmp/v2:/root/m2"
+          args "-u root -v /tmp/v2:/root/m2"
         }
       }
       steps {
