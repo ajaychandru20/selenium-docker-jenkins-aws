@@ -23,7 +23,7 @@ while [ "$( curl -s http://${SELENIUM_HUB_FORMAT:-hub}:4444/status | jq -r .valu
 do
   count=$((count+1))
   echo "Attempt: ${count}"
-  if [ "$count" -ge 30 ]
+  if [ "$count" -ge 15 ]
   then
       echo "**** HUB IS NOT READY WITHIN 30 SECONDS ****"
       exit 1
