@@ -6,7 +6,9 @@ pipeline {
       agent {
         docker {
           image 'maven:3.9.6-eclipse-temurin-21-alpine'
-          args '-u root -v /tmp/v2:/root/m2'
+          // Use the 'whoami' user's UID to run the container.
+          // This allows the container to create files with the correct ownership.
+          args "-u \$(id -u) -v /tmp/v2:/root/m2"
         }
       }
       steps {
