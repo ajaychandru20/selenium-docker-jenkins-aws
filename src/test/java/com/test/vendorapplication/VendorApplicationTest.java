@@ -54,7 +54,7 @@ public class VendorApplicationTest extends AbstractTest {
 
     @Test(dependsOnMethods = "checkDashboardWidgets")
     public void checkDashboardTable() {
-        handelPasswordWindowAlert(this.driver);
+        handelPasswordWindowAlert();
         Assert.assertTrue(dashboardTablePage.isDataVisible());
         dashboardTablePage.validateSearchBox(testData.searchKeyword());
         dashboardTablePage.validateFinalCount(testData.searchResultsCount());
@@ -62,7 +62,7 @@ public class VendorApplicationTest extends AbstractTest {
 
     @Test(dependsOnMethods = "checkDashboardTable")
     public void logOutSession() {
-        handelPasswordWindowAlert(this.driver);
+        handelPasswordWindowAlert();
         Assert.assertTrue(logoutSessionPage.isDataVisible());
         logoutSessionPage.logoutSession();
 
