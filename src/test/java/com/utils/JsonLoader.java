@@ -13,12 +13,12 @@ public class JsonLoader {
 
     public static <T> T getTestData(String url, Class<T> type) {
         try (InputStream stream = ResourceLoader.getResourceFileToStream(url)) {
-            logger.info("we got the input stream: {}", stream);
+            logger.debug("Successfully read input stream for URL: {}", url);
             return mapper.readValue(stream, type);
         } catch (Exception e) {
-            logger.error("unable to read the testdata {}", url, e);
+            logger.error("Unable to read the testdata from URL: {}", url, e);
+            return null;
         }
-        return null;
 
     }
 
